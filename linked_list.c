@@ -31,7 +31,7 @@ struct string_node * create_string_node(char * string, size_t size) {
     return new;
 }
 
-void * delete_linked_list_of_str(struct linked_list_of_strings * list) {
+void delete_linked_list_of_str(struct linked_list_of_strings * list) {
     struct string_node * node = list->head;
     while(node != NULL) {
         struct string_node * next = node->next; 
@@ -68,7 +68,7 @@ char ** get_array_from_list_of_str(struct linked_list_of_strings * list) {
 
     char ** string_array = malloc(sizeof(char*) * (list->length));
 
-    for(int i = 0; i < list->length && node != NULL; i++) {
+    for(size_t i = 0; i < list->length && node != NULL; i++) {
         string_array[i]  = malloc(sizeof(char) * (node->size + 1));
         strcpy(string_array[i], node->value);
         node = node->next;

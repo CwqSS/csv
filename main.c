@@ -60,18 +60,17 @@ void print_rules_coll(struct rules_collection * coll, struct csv_schema * schema
 
 int main() {
     struct csv * csv = extract_from_file("data.csv", 10);
-
     struct csv_page * page = get_csv_data(csv);
+    
     struct csv_schema * schema = get_csv_schema(csv);
 
     struct int_matrix * matrix = transform(page, schema->quantity_of_columns, 1);
 
     struct rules_collection * coll = iterate_matrix(matrix);
 
-    struct basic_association_info ** info_coll = make_infos(coll, csv);
+    struct basic_association_info ** info_coll = make_infos(coll, csv); 
 
     write_on_file(info_coll, coll->length, 0.2);
-
     for(int i = 0; i < coll->length; i++) {
         delete_basic_association_info(info_coll[i]);
     }

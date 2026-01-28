@@ -106,7 +106,7 @@ void extract_data(struct csv * csv_pointer) {
     FILE * fp = get_current_position_in_csv(csv_pointer);
     
     csv_page * page = create_csv_page(csv_pointer->page_size);
-    for(int i = 0; i < csv_pointer->page_size; i++) {
+    for(size_t i = 0; i < csv_pointer->page_size; i++) {
         if(!csv_pointer->has_more_data) {
             continue;
         }
@@ -145,7 +145,7 @@ void delete_csv_instance(csv_instance * instance) {
 }
 
 void delete_csv_page(csv_page * page) {
-    for(int i = 0; i < page->size; i++) {
+    for(size_t i = 0; i < page->size; i++) {
         delete_csv_instance(page->instances[i]);
     }
     free(page->instances);
@@ -176,7 +176,7 @@ void print_csv_instance(csv_instance * instance, int quantity) {
 }
 
 void print_csv_data(struct csv * csv) {
-    for(int i = 0; i < csv->page->size; i++) {
+    for(size_t i = 0; i < csv->page->size; i++) {
         print_csv_instance(csv->page->instances[i], csv->schema->quantity_of_columns);
     }
     printf("\n");

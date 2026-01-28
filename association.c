@@ -14,7 +14,8 @@ struct int_array * create_int_array(int length) {
     new->values = malloc(sizeof(int) * length);
     new->length = length;
     new->quantity = 0;
-};
+    return new;
+}
 
 int add_to_int_array(struct int_array * array, int value) {
     if(array->quantity < array->length) {
@@ -33,6 +34,7 @@ struct association_rule * create_association_rule(struct int_array * antecedent,
     rule->consequent = consequent;
     rule->antecedent_count = 0;
     rule->consequent_count = 0;
+    return rule;
 }
 
 void delete_association_rule(struct association_rule * ass) {
@@ -44,6 +46,7 @@ struct rules_collection * create_rules_collection(struct association_rule ** rul
     struct rules_collection * coll = malloc(sizeof(struct rules_collection));
     coll->rules = rules;
     coll->length = length;
+    return coll;
 }
 
 struct rules_collection * generate_associations(int qtt_columns) {
