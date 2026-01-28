@@ -20,7 +20,7 @@ typedef struct csv_page {
 struct csv;
 
 struct csv * create_csv(const char * filename, size_t page_size);
-struct csv* extract_from_file(const char * filename, size_t page_size, size_t quantity_of_pages_to_load);
+struct csv* extract_from_file(const char * filename, size_t page_size);
 void delete_csv(struct csv * csv);
 struct csv_page * get_csv_data(struct csv * csv);
 struct csv_schema * get_csv_schema(struct csv * csv);

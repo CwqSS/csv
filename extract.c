@@ -123,7 +123,7 @@ void extract_data(struct csv * csv_pointer) {
     csv_pointer->page_number += 1;
 }
 
-struct csv * extract_from_file(const char * filename, size_t page_size, size_t quantity_of_pages_to_load) {
+struct csv * extract_from_file(const char * filename, size_t page_size) {
     struct csv * csv_pointer = create_csv(filename, page_size);
     
     extract_header(csv_pointer);
@@ -189,13 +189,5 @@ struct csv_page * get_csv_data(struct csv * csv) {
 struct csv_schema * get_csv_schema(struct csv * csv) {
     return csv->schema;
 }
-// int main() {
-//     char * name = "data.csv";
-//     struct csv * csv = extract_from_file(name, 10, 1);
-//     print_csv_header(csv);
-//     print_csv_data(csv);
-//     delete_csv(csv);
-//     return 0;
-// }
 
 
