@@ -1,0 +1,4 @@
+(leite => pao) support: 0.2000 trust: 1.0000
+(leite => manteiga) support: 0.2000 trust: 1.0000
+(cafe => pao) support: 0.3000 trust: 1.0000
+(cafe => manteiga) support: 0.3000 trust: 1.0000
